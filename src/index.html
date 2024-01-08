@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Question & Answer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    #container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #3498db;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin: 10px;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    img {
+      max-width: 100%;
+      max-height: 80vh;
+      margin-top: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .answer-img {
+      display: none;
+    }
+    .answer-img.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Random Question & Answer</h1>
+    <button onclick="randomQA()">Random Question</button>
+    <button onclick="showAnswer()">Show Answer</button>
+    <div id="display-question"></div>
+    <div id="display-answer" class="answer-img"></div>
+  </div>
+
+  <script>
+    function randomQA() {
+      const questionContainer = document.getElementById('display-question');
+      const answerContainer = document.getElementById('display-answer');
+
+      questionContainer.innerHTML = ''; // Clear previous question
+      answerContainer.classList.remove('show'); // Hide previous answer
+
+      const questionFolder = 'questions'; // Folder containing questions
+      const questionImages = [
+        '1.png',
+        '2.png',
+        '3.png',
+        '4.png',
+        '5.png',
+        '6.png',
+        '7.png',
+        '8.png',
+        '9.png',
+        '10.png',
+        '11.png',
+        '12.png',
+        '13.png',
+        '14.png',
+        '15.png',
+        '16.png',
+        '17.png',
+        '18.png',
+        '19.png',
+        '20.png',
+        '21.png',
+        '22.png',
+        '23.png',
+        '24.png',
+        '25.png',
+        '26.png',
+        '27.png',
+        '28.png',
+        '29.png',
+        '30.png',
+        '31.png',
+        '32.png',
+        '33.png',
+        '34.png',
+        '35.png',
+        '36.png',
+        '37.png',
+        '38.png',
+      ];
+
+      const randomIndex = Math.floor(Math.random() * questionImages.length);
+      const selectedQuestion = questionImages[randomIndex];
+
+      const questionElement = document.createElement('img');
+      questionElement.src = `${questionFolder}/${selectedQuestion}`;
+
+      questionContainer.appendChild(questionElement);
+    }
+
+    function showAnswer() {
+      const questionContainer = document.getElementById('display-question');
+      const answerContainer = document.getElementById('display-answer');
+
+      const selectedQuestion = questionContainer.querySelector('img').src.split('/').pop();
+      const answerFolder = 'answers'; // Folder containing answers
+
+      const answerElement = document.createElement('img');
+      answerElement.src = `${answerFolder}/${selectedQuestion}`;
+
+      answerContainer.innerHTML = ''; // Clear previous answer
+      answerContainer.appendChild(answerElement);
+      answerContainer.classList.add('show'); // Show answer
+    }
+  </script>
+</body>
+</html>
