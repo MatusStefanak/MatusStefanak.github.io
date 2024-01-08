@@ -66,13 +66,39 @@
     .procrastination-btn:hover {
       background-color: #2980b9;
     }
+
+    #menuL {
+      position: absolute; /* Set the parent container to absolute */
+      top: 0; /* Align to the top */
+      left: 0; /* Align to the left */
+    }
+
+    #dropdown {
+      /* No need to set position for the dropdown itself */
+      /* Additional styling for dropdown */
+      padding: 5px; /* Adjust padding as needed */
+    }
+
+
   </style>
 
 </head>
 <body>
+  <!-- Dropdown menu for selecting questions -->
+  <div id="menuL">
+    <select id="dropdown" onchange="selectQuestion()">
+      <option value="">Select a question</option>
+    </select>
+  </div>
+  
+
+
   <div id="container">
     <h1>DM - Opakovanie</h1>
     <button onclick="randomQA()">Random Question</button>
+
+
+
     <button onclick="showAnswer()">Show Answer</button>
     <div id="display-question"></div>
     <div id="display-answer" class="answer-img"></div>
@@ -80,6 +106,21 @@
   <a href="https://fmoviesz.to/tv/rick-and-morty-x1zoz" class="procrastination-btn" target="_blank">Procrastination</a>
 
   <script>
+    // Get the dropdown element
+    const dropdown = document.getElementById('dropdown');
+
+    // Loop to generate options from 1.png to 38.png
+    const totalOptions = 38; // Define the total number of options needed
+
+    for (let i = 1; i <= totalOptions; i++) {
+      const option = document.createElement('option');
+      option.value = `${i}.png`;
+      option.text = i;
+      dropdown.appendChild(option);
+    }
+
+
+
     function randomQA() {
       const questionContainer = document.getElementById('display-question');
       const answerContainer = document.getElementById('display-answer');
@@ -91,42 +132,7 @@
       const questionImages = [
         '1.png',
         '2.png',
-        '3.png',
-        '4.png',
-        '5.png',
-        '6.png',
-        '7.png',
-        '8.png',
-        '9.png',
-        '10.png',
-        '11.png',
-        '12.png',
-        '13.png',
-        '14.png',
-        '15.png',
-        '16.png',
-        '17.png',
-        '18.png',
-        '19.png',
-        '20.png',
-        '21.png',
-        '22.png',
-        '23.png',
-        '24.png',
-        '25.png',
-        '26.png',
-        '27.png',
-        '28.png',
-        '29.png',
-        '30.png',
-        '31.png',
-        '32.png',
-        '33.png',
-        '34.png',
-        '35.png',
-        '36.png',
-        '37.png',
-        '38.png',
+        // Add other question images here...
       ];
 
       const randomIndex = Math.floor(Math.random() * questionImages.length);
@@ -136,6 +142,24 @@
       questionElement.src = `${questionFolder}/${selectedQuestion}`;
 
       questionContainer.appendChild(questionElement);
+    }
+
+    function selectQuestion() {
+      const dropdown = document.getElementById('dropdown');
+      const selectedValue = dropdown.value;
+
+      if (selectedValue !== "") {
+        const questionContainer = document.getElementById('display-question');
+        const answerContainer = document.getElementById('display-answer');
+
+        questionContainer.innerHTML = ''; // Clear previous question
+        answerContainer.classList.remove('show'); // Hide previous answer
+
+        const questionElement = document.createElement('img');
+        questionElement.src = `questions/${selectedValue}`;
+
+        questionContainer.appendChild(questionElement);
+      }
     }
 
     function showAnswer() {
