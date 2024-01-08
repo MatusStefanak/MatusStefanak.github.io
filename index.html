@@ -125,21 +125,15 @@
       questionContainer.innerHTML = ''; // Clear previous question
       answerContainer.classList.remove('show'); // Hide previous answer
 
-      const questionFolder = 'questions'; // Folder containing questions
-      const questionImages = [];
-
-      for (let i = 1; i <= 38; i++) {
-        questionImages.push(`${i}.png`);
-      }
-
-      const randomIndex = Math.floor(Math.random() * questionImages.length);
-      const selectedQuestion = questionImages[randomIndex];
+      const randomIndex = Math.floor(Math.random() * totalQuestions) + 1; // Generate random index within totalQuestions range
+      const selectedQuestion = `${randomIndex}.png`; // Get the name of the selected question image
 
       const questionElement = document.createElement('img');
-      questionElement.src = `${questionFolder}/${selectedQuestion}`;
+      questionElement.src = `questions/${selectedQuestion}`;
 
       questionContainer.appendChild(questionElement);
-    }
+}
+
 
     function selectQuestion() {
       const dropdown = document.getElementById('dropdown');
