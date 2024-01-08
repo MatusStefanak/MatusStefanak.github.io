@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Random Question & Answer</title>
+  <title>DM - opak</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,6 +12,7 @@
       height: 100vh;
       margin: 0;
       background-color: #f0f0f0;
+      position: relative;
     }
     #container {
       text-align: center;
@@ -47,7 +48,26 @@
     .answer-img.show {
       display: block;
     }
+    .procrastination-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 5px 10px;
+      font-size: 12px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none; 
+      display: inline-block;
+    }
+    .procrastination-btn:hover {
+      background-color: #2980b9;
+    }
   </style>
+
 </head>
 <body>
   <div id="container">
@@ -57,6 +77,7 @@
     <div id="display-question"></div>
     <div id="display-answer" class="answer-img"></div>
   </div>
+  <a href="https://fmoviesz.to/tv/rick-and-morty-x1zoz" class="procrastination-btn" target="_blank">Procrastination</a>
 
   <script>
     function randomQA() {
