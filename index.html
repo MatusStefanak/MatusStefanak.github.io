@@ -48,10 +48,10 @@
     .answer-img.show {
       display: block;
     }
-    .procrastination-btn {
+
+    .procrastination-btn, .pdf-btn {
       position: absolute;
       top: 10px;
-      right: 10px;
       padding: 5px 10px;
       font-size: 12px;
       background-color: #3498db;
@@ -62,10 +62,21 @@
       transition: background-color 0.3s ease;
       text-decoration: none; 
       display: inline-block;
+      width: 100px; /* Set a fixed width */
     }
+
+    .procrastination-btn {
+      right: 120px; /* Adjust this value so they don't overlap */
+    }
+
+    .pdf-btn {
+      right: 10px;
+    }
+
     .procrastination-btn:hover {
       background-color: #2980b9;
     }
+
 
     #menuL {
       position: absolute; /* Set the parent container to absolute */
@@ -78,7 +89,6 @@
       /* Additional styling for dropdown */
       padding: 5px; /* Adjust padding as needed */
     }
-
 
   </style>
 
@@ -99,7 +109,9 @@
     <div id="display-answer" class="answer-img"></div>
   </div>
   <a href="https://fmoviesz.to/tv/rick-and-morty-x1zoz" class="procrastination-btn" target="_blank">Procrastination</a>
-
+  <a href="toeria.pdf" class="pdf-btn" target="_blank">
+    <button>Open PDF</button>
+  </a>
   <script>
     const dropdown = document.getElementById('dropdown');
 
@@ -138,7 +150,6 @@
 
       questionContainer.appendChild(questionElement);
 }
-
 
     function selectQuestion() {
       const dropdown = document.getElementById('dropdown');
