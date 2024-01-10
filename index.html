@@ -106,14 +106,14 @@
     // Generating questionImages array and options for the dropdown
     const totalQuestions = 38; // Define the total number of questions
     const questionImages = [];
-
+    const words = ["dog", "cat"]
     for (let i = 1; i <= totalQuestions; i++) {
       const questionImage = `${i}.png`;
       questionImages.push(questionImage); // Add image to questionImages array
 
       const option = document.createElement('option');
       option.value = questionImage;
-      option.text = `${i}`;
+      option.text = `${i}`+words[0];
 
       dropdown.appendChild(option); // Append option to the dropdown
     }
