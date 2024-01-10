@@ -106,14 +106,18 @@
     // Generating questionImages array and options for the dropdown
     const totalQuestions = 38; // Define the total number of questions
     const questionImages = [];
-    const words = ["dog", "cat"]
+    const words = ["karteziansky sucin", "reflexivnost...","zobrazenie+vlastnosti","CUM/LUM","najmensi/min prvok",
+    "najvacsi/max prvok","horne ohranicenia","dolne ohranicenie","priesek/spojenie","zvaz","bool zvaz","bool funkcia","abeceda vyrok. logiky",
+    "tautologia/kontradikcia..","pravd ohodnotenie/hodnota","morganove pravidla","DNT/KNT","normal tvar","alfa vyplyva","graf,incidencia",
+    "veta stupne vrcholov","suvysli graf,komponent,most","exc,priemer,polomer","vlastn. matic pre graf","vlastn. matic pre digraf",
+    "strom","graf stupna k","farbenie vrch+ chrom č.","farbenie hrn + chrom. indx","Eulerova veta","stupen vrchola,vonkajs,vnutorny","bin strom","vaha kostry","dlzka cesty/min cesta"]
     for (let i = 1; i <= totalQuestions; i++) {
       const questionImage = `${i}.png`;
       questionImages.push(questionImage); // Add image to questionImages array
 
       const option = document.createElement('option');
       option.value = questionImage;
-      option.text = `${i}`+words[0];
+      option.text = `${i}. - ` + words[i];
 
       dropdown.appendChild(option); // Append option to the dropdown
     }
